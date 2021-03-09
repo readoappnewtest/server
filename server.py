@@ -54,7 +54,8 @@ def search(text):
     print(main_json_data)
 s = socket.socket()
 port = 8219
-s.bind(('',port))
+host_ip = "172.17.248.162"
+s.bind((host_ip,port))
 print("Socket Bind " +str(port)+"")
 s.listen(5)
 print("Stated")
