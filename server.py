@@ -62,7 +62,7 @@ def my_ip():
 s = socket.socket()
 port = 8080
 host_ip = socket.gethostbyname("jeemainnoti.herokuapp.com")
-s.bind((host_ip,port))
+s.bind(('0.0.0.0',port))
 print("Socket Bind " +str(port)+"")
 print(s)
 s.listen(5)
