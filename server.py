@@ -61,7 +61,7 @@ def my_ip():
     return str(data.text)
 s = socket.socket()
 port = 8219
-host_ip = my_ip()
+host_ip = socket.gethostbyname(socket.gethostname())
 s.bind((host_ip,port))
 print("Socket Bind " +str(port)+"")
 print(s)
