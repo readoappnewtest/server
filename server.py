@@ -60,8 +60,8 @@ def my_ip():
     #print(data)
     return str(data.text)
 s = socket.socket()
-port = 8219
-host_ip = socket.gethostbyname(socket.gethostname())
+port = 8080
+host_ip = socket.gethostbyname("jeemainnoti.herokuapp.com")
 s.bind((host_ip,port))
 print("Socket Bind " +str(port)+"")
 print(s)
