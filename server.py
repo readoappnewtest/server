@@ -1,4 +1,6 @@
 import socket
+import requests
+
 
 data_record = {}
 data_record['data'] = []
@@ -52,11 +54,17 @@ def search(text):
             last_n = n_n
     main_json_data = {"host":""+str(http_host)+"","method":""+str(http_method)+"","user-agent":""+str(http_user_agent)+"","cookie":""+str(http_cookie)+"","sub_file":""+str(http_sub_file)+""}
     print(main_json_data)
+def my_ip():
+    url="https://api.my-ip.io/ip"
+    data = requests.get(url,headers={"User-Agent":"Nasa"})
+    #print(data)
+    return str(data.text)
 s = socket.socket()
 port = 8219
-host_ip = "172.17.248.162"
+host_ip = my_ip()
 s.bind((host_ip,port))
 print("Socket Bind " +str(port)+"")
+print(s)
 s.listen(5)
 print("Stated")
 while True:
