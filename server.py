@@ -55,13 +55,22 @@ def search(text):
     main_json_data = {"host":""+str(http_host)+"","method":""+str(http_method)+"","user-agent":""+str(http_user_agent)+"","cookie":""+str(http_cookie)+"","sub_file":""+str(http_sub_file)+""}
     print(main_json_data)
 def my_ip():
-    url="https://api.my-ip.io/ip"
+    url="http://ip6.me/api/"
     data = requests.get(url,headers={"User-Agent":"Nasa"})
     #print(data)
-    return str(data.text)
-s = socket.socket()
+    raa = data.text
+    ip_start = raa.find(",",4)
+    ip_last = raa.find(",",6)
+    print("start")
+    print(raa[ip_start+1:ip_last])
+    print("#############################")
+    return str(raa[ip_start+1:ip_last])
+
+
+s = socket.socket(socket.AF_INET6, socket.SOCK_STREAM, 0)
 port = 8219
-host_ip = socket.gethostbyname("jeemainnoti.herokuapp.com")
+
+host_ip = my_ip()
 s.bind(('',port))
 print("Socket Bind " +str(port)+"")
 print(s)
