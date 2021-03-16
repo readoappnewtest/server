@@ -67,7 +67,7 @@ def my_ip():
     return str(raa[ip_start+1:ip_last])
 
 
-s = socket.socket(socket.AF_INET,socket.AF_INET6, socket.SOCK_STREAM, 0)
+s = socket.socket(socket.AF_INET,socket.SOCK_STREAM, 0)
 port = 8219
 
 host_ip = my_ip()
